@@ -26,7 +26,7 @@
         <div class="row">
 
             <div class="col-md-8">
-                <img class="img-responsive prod-img" src="./images/<?php echo $model['pid'];?>.jpg" alt="">
+                <img class="img-responsive prod-img" src="../images/<?php echo $model['pid'];?>.jpg" alt="">
             </div>
 
             <div class="col-md-4">
@@ -45,30 +45,8 @@
             <div class="col-lg-12">
                 <h3 class="page-header">推薦商品</h3>
             </div>
-
-            <div class="col-sm-3 col-xs-6">
-                <a href="#">
-                    <img class="img-responsive portfolio-item" src="http://placehold.it/500x300" alt="">
-                </a>
             </div>
-
-            <div class="col-sm-3 col-xs-6">
-                <a href="#">
-                    <img class="img-responsive portfolio-item" src="http://placehold.it/500x300" alt="">
-                </a>
-            </div>
-
-            <div class="col-sm-3 col-xs-6">
-                <a href="#">
-                    <img class="img-responsive portfolio-item" src="http://placehold.it/500x300" alt="">
-                </a>
-            </div>
-
-            <div class="col-sm-3 col-xs-6">
-                <a href="#">
-                    <img class="img-responsive portfolio-item" src="http://placehold.it/500x300" alt="">
-                </a>
-            </div>
+<div id="recommend_index" class="row">
 
         </div>
 
@@ -79,7 +57,9 @@
     ?>
 
     </div>
-
+    <script type="text/javascript">
+        var product_list = <?php echo json_encode($product_list);?>;
+    </script>
 <script id="etu-recommender" type="text/javascript">
 var erHostname='api.eronline.etunexus.com';
 var _qevent = _qevent || [];
@@ -91,7 +71,25 @@ _qevent.push({
     pid : '<?php echo $model['pid'] ;?>',
     cat : '<?php echo $model['cat'] ;?>',
 });
-
+var _qquery = _qquery || [];
+_qquery.push({
+    group : 'ER',
+    cid : 'workshoprec',
+    type : 'item',
+    act : 'view',
+    pid : '<?php echo $model['pid'] ;?>',
+    cat : '<?php echo $model['cat'] ;?>', // optional
+    callback : function(queryParams,queryResult){
+        for(var idx in queryResult){
+            var pid = queryResult[idx];
+            var html =  '<div class="col-sm-3 col-xs-6 portfolio-item">';
+            html += '<a href="./product.php?prd='+pid+'"><img class="img-responsive portfolio-item" src="../images/'+pid+'.jpg" alt=""></a>';
+            html += '<h4><a href="./product.php?prd='+pid+'">'+product_list[pid]+'</a></h4>';
+            html += '</div>';
+            $("#recommend_index").append(html);
+        }
+    }
+});
 var erUrlPrefix=('https:' == document.location.protocol ? 'https://':'http://')+erHostname+'/';
 (function() {
     var er = document.createElement('script');
@@ -105,7 +103,7 @@ var erUrlPrefix=('https:' == document.location.protocol ? 'https://':'http://')+
 
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
 
 </body>
 

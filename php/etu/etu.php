@@ -11,7 +11,8 @@
         "prd_008" => "鄉村白瓷筆筒",
         "prd_009" => "鄉村奶白小物罐",
         );
-    $row_length = 3;
+    $index_row_length = 3;
+    $recommend_length = 4;
     if ($_GET['login'] == 1 && !isset($_SESSION['uid'])){
         $_SESSION['uid'] = 'user_00'.rand(1,9);
     } else if ($_GET['login'] === '0' && isset($_SESSION['uid'])){
