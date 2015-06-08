@@ -1,5 +1,6 @@
 <?php
     include_once("etu.php");
+    include_once("productlist.php");
     // $model : 儲存推薦相關資料的php變數
     // $model['uid'] : 使用者uid
     // $model['pid'] : 產品pid

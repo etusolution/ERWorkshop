@@ -1,5 +1,6 @@
 <?php
     include_once("etu.php");
+    include_once("productlist.php");
 ?>
 <!DOCTYPE html>
 <html lang="zh-tw">
