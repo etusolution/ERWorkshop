@@ -6,9 +6,9 @@ if [ "x$SCPBIN" == "x" ]; then
 	exit 1
 fi
 
-ERDEMO_HOST=ec2-54-151-252-204.ap-southeast-1.compute.amazonaws.com
+ERDEMO_HOST=workshop.eronline.etunexus.com
 ERDEMO_USER=
-ERDEMO_OPT=E
+ERDEMO_OPT=
 
 function pause {
 	read -n1 -p "Press any key to continue..."

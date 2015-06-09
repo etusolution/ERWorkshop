@@ -65,7 +65,7 @@
 var erHostname='api.eronline.etunexus.com';
 var _qevent = _qevent || [];
 _qevent.push({
-    group : 'ER',
+    group : 'workshop',
     cid : 'workshoprec',
     act : 'view',
     uid : '<?php echo $model['uid'] ;?>',
@@ -74,7 +74,7 @@ _qevent.push({
 });
 var _qquery = _qquery || [];
 _qquery.push({
-    group : 'ER',
+    group : 'workshop',
     cid : 'workshoprec',
     type : 'item',
     act : 'view',

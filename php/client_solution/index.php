@@ -72,7 +72,7 @@
 var erHostname='api.eronline.etunexus.com';
 var _qquery = _qquery || [];
 _qquery.push({
-    group : 'ER',
+    group : 'workshop',
     cid : 'workshoprec',
     type : 'user',
     act : 'view',
