@@ -79,4 +79,6 @@ if "%ERDEMO_OPT%"=="D" (
 	echo.
 	exit /b 1
 )
+set ERDEMO_OPT=
+exit /b 0
 goto :eof

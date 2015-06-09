@@ -82,6 +82,7 @@ function showMenu {
 			exit 0;
 			;;
 	esac
+	unset ERDEMO_OPT
 }
 
 while [ 1 ]; do
