@@ -8,4 +8,5 @@ for accounts in `ls -d user*`; do
 		rm -rf $accountwww
 	fi
 	cp -rf /root/workshop/www $accountwww
+	chown $accounts $accountwww
 done
