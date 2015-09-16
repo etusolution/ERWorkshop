@@ -12,7 +12,10 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li>
-                        <a href="./">首頁</a>
+                        <a href="./">商品首頁</a>
+                    </li>
+                    <li>
+                        <a href="./content_index.php">文章首頁</a>
                     </li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
