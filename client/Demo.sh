@@ -6,7 +6,7 @@ if [ "x$SCPBIN" == "x" ]; then
 	exit 1
 fi
 
-ERDEMO_HOST=workshop.eronline.etunexus.com
+ERDEMO_HOST=workshop.online.etunexus.com
 ERDEMO_USER=
 ERDEMO_OPT=
 
@@ -21,7 +21,7 @@ function download {
 	fi
 
 	echo "Downloading the source code into \"./www\"..."
-	echo $ERDEMO | scp -r $ERDEMO_USER@$ERDEMO_HOST:/home/$ERDEMO_USER/www ./
+	echo $ERDEMO | scp -o "StrictHostKeyChecking=no" -r $ERDEMO_USER@$ERDEMO_HOST:/home/$ERDEMO_USER/www ./
 	STATUS=$?
 	if [ $STATUS -ne 0 ]; then
 	    echo "!!! Failed to download the source code."
@@ -38,7 +38,7 @@ function upload {
 	fi
 
 	echo "Uploading the source code..."
-	scp -r ./www $ERDEMO_USER@$ERDEMO_HOST:/home/$ERDEMO_USER/
+	scp -o "StrictHostKeyChecking=no" -r ./www $ERDEMO_USER@$ERDEMO_HOST:/home/$ERDEMO_USER/
 	STATUS=$?
 	if [ $STATUS -ne 0 ]; then
 	    echo "!!! Failed to upload the source code."

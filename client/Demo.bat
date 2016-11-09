@@ -2,8 +2,8 @@ echo off
 setlocal
 
 set SCP=winscp.com
-set ERDEMO_HOST=workshop.eronline.etunexus.com
-set ERDEMO_HOSTKEY=ssh-rsa 2048 fa:1f:9a:3e:de:00:a3:63:11:47:eb:cd:25:99:75:b4
+set ERDEMO_HOST=workshop.online.etunexus.com
+set ERDEMO_HOSTKEY=ssh-rsa 2048 e7:e3:88:a8:70:83:9b:60:07:6b:76:e2:37:f4:61:f0
 set ERDEMO_USER=
 set ERDEMO_PWD=
 set ERDEMO_OPT=

@@ -6,7 +6,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Etu Recommender Workshop</title>
+    <title>Etu Workshop</title>
 
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <link href="../css/portfolio-item.css" rel="stylesheet">

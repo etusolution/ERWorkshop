@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 import sys
 import os
 import subprocess
@@ -5,19 +6,21 @@ import random
 #import win32clipboard
 
 DefAccountFormat = 'user%03d'
-DefPasswordLength = 8
+DefPasswordLength = 4
 
 PasswordCharacterList = [
-    'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',
-    'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z',
-    '2', '3', '4', '5', '6', '7', '8', '9',
+#    'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',
+#    'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z',
+#    '2', '3', '4', '5', '6', '7', '8', '9',
+    '0','1','2', '3', '4', '5', '6', '7', '8', '9',
 ]
 
 createAccountCommand = '''
     useradd {0} -g users;
     cp -rf /root/workshop/www /home/{0}/www;
+    chmod -R 711 /home/{0}/;
+    chmod -R 755 /home/{0}/www/;
     chown -R {0}:apache /home/{0}/;
-    chmod -R 750 /home/{0}/;
 '''
 
 def genRandomPassword():
@@ -47,13 +50,17 @@ def main():
     format = raw_input('The account format [%s]: ' % DefAccountFormat);
     if (len(format)==0):
         format = DefAccountFormat
+    create = raw_input('Create account (Y) or just change password (N) [N]?');
+    if (len(create)==0):
+        create = 'Y'
 
     with open('accounts.txt', 'w+') as accounts_fd:
         for i in range(start, start+counts):
             account = format % i
             pwd = genRandomPassword()
-            cmd = createAccountCommand.format(account)
-            os.system(cmd)
+            if (create == 'Y'):
+                cmd = createAccountCommand.format(account)
+                os.system(cmd)
 
             print >> accounts_fd, '{0}:{1}'.format(account, pwd)
 
